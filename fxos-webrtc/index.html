@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+<!--
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'">
+-->
+
+    <title>WebRTC</title>
+
+    <style>
+      body {
+        margin: 0;
+        background-color: #f8f8f8;
+      }
+      .video-view {
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+      }
+      input {
+        font-size: 2em;
+      }
+      button {
+        font-size: 1.5em;
+      }
+      #control {
+        margin: 8px;
+      }
+      #indicator {
+        font-size: 2em;
+        margin-top: 40vh;
+        text-align: center;
+      }
+    </style>
+    <script src="js/adapter.js" defer></script>
+    <script src="js/socket.io.js" defer></script>
+    <script src="js/webrtc.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+
+  <body>
+<!--
+    <section>
+      <button type="button" id="start-listener">Start listener</button>
+      <button type="button" id="stop-video">Stop video</button>
+    </section>
+-->
+    <section id="control">
+      <input id="server" type="text" value="192.168.1.24:9001"><br>
+      <button type="button" id="connect">Send video stream</button>
+      <button type="button" id="start-listener">Wait video stream</button>
+      <!-- <button type="button" id="hang-up">Hang Up</button> -->
+    </section>
+    <div id="indicator" style="display:none">Waiting video stream...</div>
+    <div id="viewer" style="display:none">
+     <video id="remote-video" autoplay class="video-view"></video>
+    </div>
+  </body>
+
+</html>
